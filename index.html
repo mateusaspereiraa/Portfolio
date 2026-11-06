@@ -3,214 +3,871 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mateus Pereira | Portfólio T.I.</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap">
+<title>Mateus Pereira | Central Integrada de T.I. & Portfólio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
-:root{--bg:#f3f6f4;--card:#fff;--ink:#12201a;--mute:#52635a;--line:#d3dcd6;--acc:#0a6b4f;--acc2:#e8f3ee;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1612;--card:#16221c;--ink:#e8f1ec;--mute:#9bb0a4;--line:#27382f;--acc:#4fd1a1;--acc2:#1b2d25}}
-:root[data-theme="dark"]{--bg:#0e1612;--card:#16221c;--ink:#e8f1ec;--mute:#9bb0a4;--line:#27382f;--acc:#4fd1a1;--acc2:#1b2d25}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Figtree,system-ui,sans-serif;line-height:1.55}
-.wrap{max-width:1040px;margin:0 auto;padding:28px 18px 60px}
-h1,h2,h3{font-family:"Bricolage Grotesque",Figtree,sans-serif;margin:0;letter-spacing:-.01em}
-h1{font-size:clamp(2rem,6vw,3.4rem);font-weight:800;line-height:1.05}
-.sub{color:var(--mute);max-width:60ch;margin:14px 0 0;font-size:1.05rem}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 22px}
-.tabs button{font:inherit;font-weight:600;font-size:.9rem;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
-.tabs button[aria-pressed="true"]{background:var(--acc);color:var(--bg);border-color:var(--acc)}
-button:focus-visible,a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
-.card.hl{border-color:var(--acc);border-width:2px}
-.cover{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-size:2.6rem;background:var(--acc2);border-bottom:1px solid var(--line)}
-.body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:10px;flex:1}
-.cat{font-size:.8rem;color:var(--mute)}
-h3{font-size:1.15rem;font-weight:700}
-.cap{font-size:.88rem;color:var(--mute);white-space:pre-line;margin:0;max-height:7.5em;overflow:auto;padding:8px 10px;background:var(--bg);border-radius:6px}
-.row{display:flex;gap:8px;margin-top:auto;flex-wrap:wrap}
-.btn{font:inherit;font-size:.85rem;font-weight:600;padding:7px 12px;border-radius:6px;border:1px solid var(--acc);background:transparent;color:var(--acc);cursor:pointer;text-decoration:none;display:inline-block}
-.btn.p{background:var(--acc);color:var(--bg)}
-.btn.v{width:100%;text-align:center}
-dialog{width:min(640px,94vw);max-height:88vh;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);padding:0}
-dialog::backdrop{background:rgba(0,0,0,.55)}
-.dh{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--card)}
-.dh h2{font-size:1.15rem}
-.db{padding:16px 18px;display:flex;flex-direction:column;gap:18px}
-.vi h4{margin:0 0 8px;font-size:1rem}
-.vi iframe,.vi video{width:100%;aspect-ratio:16/9;border:0;border-radius:8px;background:#000}
-.log{background:#0b120e;color:#b8f5d6;padding:12px;border-radius:8px;font:13px/1.5 ui-monospace,Menlo,monospace;min-height:120px;max-height:220px;overflow:auto;margin:0;white-space:pre-wrap}
-#rs{overflow-x:auto}
-.tb{width:100%;border-collapse:collapse;font-size:.8rem}.tb th,.tb td{padding:4px 6px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
-.br{display:grid;grid-template-columns:minmax(120px,1.3fr) 2fr auto;align-items:center;gap:8px;font-size:.88rem;margin:5px 0}
-.br i{display:block;height:10px;border-radius:5px;background:var(--acc)}
-.empty{color:var(--mute);font-size:.95rem;margin:0}
+:root {
+  --bg: #0f1715;
+  --card: #16221c;
+  --card-hover: #1e2e26;
+  --ink: #e8f1ec;
+  --mute: #9bb0a4;
+  --line: #27382f;
+  --acc: #4fd1a1;
+  --acc-hover: #3eb88c;
+  --acc2: #1b2d25;
+  --danger: #ff5f56;
+  --warning: #ffbd2e;
+  --success: #27c93f;
+  --shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+  box-sizing: border-box;
+}
+
+:root[data-theme="light"] {
+  --bg: #f3f6f4;
+  --card: #ffffff;
+  --card-hover: #f8faf9;
+  --ink: #12201a;
+  --mute: #52635a;
+  --line: #d3dcd6;
+  --acc: #0a6b4f;
+  --acc-hover: #07523c;
+  --acc2: #e8f3ee;
+  --shadow: 0 10px 25px -5px rgba(0,0,0,0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Figtree, system-ui, -apple-system, sans-serif;
+  line-height: 1.55;
+  min-height: 100vh;
+  padding-bottom: env(safe-area-inset-bottom, 20px);
+}
+
+.header-bar {
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.header-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 12px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand span {
+  background: var(--acc2);
+  color: var(--acc);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  border: 1px solid var(--line);
+}
+
+.user-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wrap {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 24px 18px 60px;
+}
+
+.hero {
+  margin-bottom: 28px;
+  padding: 24px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+h1 {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+}
+
+.sub {
+  color: var(--mute);
+  max-width: 65ch;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.stats-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.pill {
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--acc2);
+  color: var(--acc);
+  border: 1px solid var(--line);
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 22px;
+  scrollbar-width: thin;
+}
+
+.tabs button {
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.tabs button:hover {
+  border-color: var(--acc);
+}
+
+.tabs button[aria-pressed="true"] {
+  background: var(--acc);
+  color: var(--bg);
+  border-color: var(--acc);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--acc);
+  box-shadow: var(--shadow);
+}
+
+.card.hl {
+  border-color: var(--acc);
+  border-width: 2px;
+}
+
+.cover {
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
+  background: var(--acc2);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.badge-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  color: var(--acc);
+  text-transform: uppercase;
+}
+
+.body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.cat {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--mute);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+h3 {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.cap {
+  font-size: 0.88rem;
+  color: var(--mute);
+  white-space: pre-line;
+  margin: 0;
+  max-height: 7em;
+  overflow-y: auto;
+  padding: 10px;
+  background: var(--bg);
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--acc);
+  background: transparent;
+  color: var(--acc);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.btn:hover {
+  background: var(--acc2);
+}
+
+.btn.p {
+  background: var(--acc);
+  color: var(--bg);
+  border-color: var(--acc);
+}
+
+.btn.p:hover {
+  background: var(--acc-hover);
+}
+
+.btn.v {
+  width: 100%;
+}
+
+.btn.sec {
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.btn.sec:hover {
+  background: var(--line);
+}
+
+dialog {
+  width: min(720px, 94vw);
+  max-height: 90vh;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--card);
+  color: var(--ink);
+  padding: 0;
+  margin: auto;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+}
+
+.dh {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  background: var(--card);
+  z-index: 10;
+}
+
+.dh h2 {
+  font-size: 1.2rem;
+}
+
+.db {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow-y: auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--mute);
+}
+
+.form-control {
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+  width: 100%;
+}
+
+.form-control:focus {
+  outline: 2px solid var(--acc);
+  border-color: transparent;
+}
+
+.log {
+  background: #080d0a;
+  color: #4fd1a1;
+  padding: 14px;
+  border-radius: 10px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  min-height: 140px;
+  max-height: 260px;
+  overflow: auto;
+  margin: 0;
+  white-space: pre-wrap;
+  border: 1px solid var(--line);
+}
+
+.tb-wrap { overflow-x: auto; border-radius: 8px; border: 1px solid var(--line); }
+.tb { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.tb th, .tb td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
+.tb th { background: var(--acc2); color: var(--ink); font-weight: 700; }
+
+.br {
+  display: grid;
+  grid-template-columns: minmax(140px, 1.4fr) 2fr auto;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  margin: 6px 0;
+}
+
+.br i {
+  display: block;
+  height: 12px;
+  border-radius: 6px;
+  background: var(--acc);
+  transition: width 0.5s ease;
+}
+
+.user-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: var(--acc2);
+  border: 1px solid var(--line);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+}
+
+@media (max-width: 600px) {
+  .hero { padding: 16px; }
+  .grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 10px 14px; }
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-<h1>Mateus Pereira<br>Portfólio de T.I.</h1>
-<p class="sub">Desenvolvimento web, e-commerce, sistemas, dados com Python, manutenção de computadores e redes.</p>
-<div class="tabs" id="tabs" role="group" aria-label="Filtrar por área"></div>
-<div class="grid" id="grid"></div>
-</div>
+
+<header class="header-bar">
+  <div class="header-inner">
+    <a href="#" class="brand">
+      <span>TI</span> Mateus Pereira
+    </a>
+    <div class="user-nav">
+      <div id="userState" class="user-badge">
+        <span class="status-dot"></span>
+        <span id="userName">Visitante</span>
+      </div>
+      <button class="btn sec" id="btnLoginToggle">Login</button>
+      <button class="btn sec" id="btnConfig">⚙️ Configurações</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <h1>Central Integrada de T.I. & Software</h1>
+      <p class="sub">Hub unificado de aplicações web, inteligência artificial, automação Python, business intelligence (Power BI), infraestrutura de redes e suporte técnico.</p>
+      <div class="stats-pills">
+        <span class="pill">🚀 21 Repositórios Mapeados</span>
+        <span class="pill">⚡ Automações &amp; Scripts</span>
+        <span class="pill">📊 BI &amp; Analytics</span>
+        <span class="pill">🤖 IA Integrada</span>
+      </div>
+    </div>
+  </section>
+
+  <nav class="tabs" id="tabs" role="group" aria-label="Filtrar por categoria"></nav>
+  <section class="grid" id="grid"></section>
+</main>
 
 <dialog id="dlg" aria-labelledby="dt">
-<div class="dh"><h2 id="dt"></h2><button class="btn" id="close">Fechar</button></div>
-<div class="db" id="dbody"></div>
+  <div class="dh">
+    <h2 id="dt">Detalhes</h2>
+    <button class="btn sec" id="closeDlg">Fechar</button>
+  </div>
+  <div class="db" id="dbody"></div>
+</dialog>
+
+<dialog id="loginDlg" aria-labelledby="lt">
+  <div class="dh">
+    <h2 id="lt">Autenticação do Sistema</h2>
+    <button class="btn sec" id="closeLogin">Fechar</button>
+  </div>
+  <div class="db">
+    <form id="loginForm" onsubmit="return false;">
+      <div class="form-group">
+        <label for="uEmail">Usuário / E-mail</label>
+        <input type="text" id="uEmail" class="form-control" placeholder="admin@mateuspereira.dev" required>
+      </div>
+      <div class="form-group" style="margin-top:12px;">
+        <label for="uPass">Senha de Acesso</label>
+        <input type="password" id="uPass" class="form-control" placeholder="••••••••" required>
+      </div>
+      <div style="margin-top:18px; display:flex; gap:10px;">
+        <button class="btn p" style="flex:1;" id="btnDoLogin">Entrar no Sistema</button>
+        <button class="btn sec" id="btnGuestLogin">Entrar como Visitante</button>
+      </div>
+    </form>
+    <p style="font-size:0.78rem; color:var(--mute); text-align:center; margin-top:10px;">
+      Simulação de autenticação com persistência local e logs de acesso no navegador.
+    </p>
+  </div>
+</dialog>
+
+<dialog id="configDlg" aria-labelledby="ct">
+  <div class="dh">
+    <h2 id="ct">Configurações &amp; Preferências</h2>
+    <button class="btn sec" id="closeConfig">Fechar</button>
+  </div>
+  <div class="db">
+    <div class="form-group">
+      <label>Tema da Interface</label>
+      <select id="themeSelect" class="form-control">
+        <option value="dark">Escuro (Padrão)</option>
+        <option value="light">Claro</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Modo de Exibição dos Projetos</label>
+      <select id="viewModeSelect" class="form-control">
+        <option value="all">Exibir Todos os Cards</option>
+        <option value="featured">Apenas Destaques</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Chave API do Sistema (Simulada / Webhook)</label>
+      <input type="text" id="cfgApiKey" class="form-control" value="mp_live_89f0a71b2298c3e41d">
+    </div>
+    <div style="margin-top:10px; display:flex; gap:10px;">
+      <button class="btn p" id="btnSaveConfig">Salvar Configurações</button>
+      <button class="btn sec" id="btnClearStorage" style="color:var(--danger); border-color:var(--danger);">Limpar Cache Local</button>
+    </div>
+  </div>
 </dialog>
 
 <script>
-var VIDEOS={
- "manutencao":[],
- "redes":[],
- "Site-Wpohstore":[],
- "Toplim-Catalogo-Virtual--Projeto-Final-":[],
- "financeiro":[],
- "LandingPageFocoinTech":[],
- "P-gina-de-Checkout":[],
- "Sistema-deposito-de-Bebidas-":[],
- "dyeshop":[],
- "Loja-Yshop-Online-Store":[],
- "Site-de-Pedagogia":[],
- "Dropshipping-e-Afiliados":[],
- "World-Designer":[],
- "Automacao-com-Python":[],
- "Analise-de-Dados-com-Python":[],
- "Nlw-Experts":[],
- "Curso-em-Video-Git-e-Github":[]
+// --- BANCO DE DADOS UNIFICADO DE REPOSITÓRIOS E PROJETOS ---
+var USER = "mateusaspereiraa";
+var U2 = "https://github.com/" + USER + "/";
+var TAGS = "#TI #Tecnologia #Portfolio #Dev";
+
+var VIDEOS = {
+  "manutencao": [],
+  "redes": [],
+  "Site-Wpohstore": [],
+  "Toplim-Catalogo-Virtual--Projeto-Final-": [],
+  "financeiro": [],
+  "LandingPageFocoinTech": [],
+  "P-gina-de-Checkout": [],
+  "Sistema-deposito-de-Bebidas-": [],
+  "dyeshop": [],
+  "Loja-Yshop-Online-Store": [],
+  "Site-de-Pedagogia": [],
+  "Dropshipping-e-Afiliados": [],
+  "World-Designer": [],
+  "Automacao-com-Python": [],
+  "Analise-de-Dados-com-Python": [],
+  "Nlw-Experts": [],
+  "Curso-em-Video-Git-e-Github": [],
+  "Projeto-Dio-Power-BI": [],
+  "IA-com-Python": [],
+  "Sites-e-Sistemas-com-Python": []
 };
 
-var SHOW_OPEN=false, SHOW_EMPTY_VIDEOS=false;
-var SITES=["Site-Wpohstore","Toplim-Catalogo-Virtual--Projeto-Final-","projeto-final","financeiro","LandingPageFocoinTech","P-gina-de-Checkout","Sistema-deposito-de-Bebidas-","Loja-Yshop-Online-Store","World-Designer","Nlw-Experts","Curso-em-Video-Git-e-Github"];
-var U2="https://github.com/mateusaspereiraa/";
-var USER="mateusaspereiraa", TAGS="#TI #Tecnologia #Portfolio";
-
-var D=[
-["🛠️","Manutenção de Computadores","Manutenção","","Diagnóstico, limpeza, troca de peças e formatação: o dia a dia que mantém empresas e pessoas trabalhando.\nVou mostrar o antes e o depois de cada atendimento.","#ManutencaoDeComputadores #SuporteTecnico #Hardware",1],
-["🌐","Redes e Infraestrutura","Redes","","Cabeamento, configuração de roteadores, Wi-Fi e resolução de falhas de conexão, do problema à solução.","#Redes #Infraestrutura #SuporteTecnico",1],
-["🏆","Projeto Final: Central de Sistemas T.I.","Projeto Final","projeto-final","Criei uma central de sistemas em arquivo único, com login e quatro módulos para a rotina de T.I.: chamados de manutenção, inventário de redes, estoque e finanças.\nTudo salvo no navegador, com busca, edição e exportação em CSV.","#ProjetoFinal #TI #JavaScript #Manutencao #Redes",1,"HTML/CSS/JS","https://claude.ai/artifact/DHL4D6EK79y7tzxrdCYZai"],
-["🛒","Site Wpoh Store","E-commerce","Site-Wpohstore","Construí o site da Wpoh Store, uma loja virtual pensada para apresentar produtos e facilitar a compra.","#Ecommerce #DesenvolvimentoWeb #HTML #CSS #JavaScript",0,"HTML/CSS/JS"],
-["📒","Toplim Catálogo Virtual (Projeto Final)","Catálogo","Toplim-Catalogo-Virtual--Projeto-Final-","Projeto final: um catálogo virtual para a Toplim, organizando produtos de forma simples para o cliente consultar.","#CatalogoVirtual #ProjetoFinal #DesenvolvimentoWeb",0,"HTML/CSS/JS"],
-["💰","Financeiro","Sistemas","financeiro","Lumina Finance: painel financeiro com dashboard, transações, metas e Open Finance, com gráficos e importação de planilhas Excel e CSV.","#Financas #Sistemas #Programacao",0,"HTML/CSS/JS"],
-["🚀","Landing Page FocoinTech","Landing Pages","LandingPageFocoinTech","Landing page da FocoinTech, criada para apresentar a marca e converter visitantes em contatos.","#LandingPage #FrontEnd #WebDesign",0,"HTML/CSS/JS"],
-["💳","Página de Checkout","Landing Pages","P-gina-de-Checkout","Página de checkout focada em deixar o fechamento da compra claro e sem atrito.","#Checkout #UX #FrontEnd #Ecommerce",0,"HTML/CSS/JS"],
-["🍺","Sistema Depósito de Bebidas","Sistemas","Sistema-deposito-de-Bebidas-","Sistema de gestão para depósito de bebidas: bebidas, fornecedores, clientes, estoque, pedidos, relatórios e NFC. Funciona como app instalável (PWA).","#Sistemas #Estoque #Programacao",0,"HTML/CSS/JS"],
-["🏬","DYeshop","E-commerce","dyeshop","Projeto DYeshop, a base da loja virtual que evoluí em outras versões.","#Ecommerce #WebDev #Projetos",0,"HTML/CSS/JS"],
-["👟","Loja Yshop Online Store","E-commerce","Loja-Yshop-Online-Store","Loja Yshop: mais um projeto de e-commerce, com foco em experiência de compra.","#Ecommerce #LojaOnline #FrontEnd",0,"HTML/CSS/JS"],
-["🎓","Site de Pedagogia","Landing Pages","Site-de-Pedagogia","Site para a área de pedagogia, apresentando serviços de forma clara e acolhedora.","#WebSite #Educacao #FrontEnd",0,"HTML/CSS/JS"],
-["📈","Dropshipping e Afiliados","Negócios Digitais","Dropshipping-e-Afiliados","Projeto sobre dropshipping e marketing de afiliados, unindo tecnologia e vendas online.","#Dropshipping #Afiliados #MarketingDigital",0,"HTML/CSS/JS"],
-["🎨","World Designer","Design","World-Designer","World Designer: projeto voltado a design e criatividade na web.","#Design #WebDesign #FrontEnd",0,"HTML/CSS/JS"],
-["🐍","Automação com Python","Python","Automacao-com-Python","Automatizei tarefas repetitivas com Python para ganhar tempo.","#Python #Automacao #Produtividade",0,"Python"],
-["📊","Análise de Dados com Python","Python","Analise-de-Dados-com-Python","Análise de dados com Python: transformar dados soltos em informação útil.","#Python #AnaliseDeDados #DataScience",0,"Python"],
-["⚡","NLW Experts","Estudos","Nlw-Experts","Projeto do NLW Experts, evento intensivo de programação da Rocketseat.","#NLW #Rocketseat #Programacao",0,"JavaScript"],
-["🔀","Git e GitHub (Curso em Vídeo)","Estudos","Curso-em-Video-Git-e-Github","Estudos de Git e GitHub pelo Curso em Vídeo: versionamento de código, base de todo projeto.","#Git #GitHub #CursoEmVideo",0,"Git"]
+var SITES = [
+  "Site-Wpohstore",
+  "Toplim-Catalogo-Virtual--Projeto-Final-",
+  "projeto-final",
+  "financeiro",
+  "LandingPageFocoinTech",
+  "P-gina-de-Checkout",
+  "Sistema-deposito-de-Bebidas-",
+  "Loja-Yshop-Online-Store",
+  "World-Designer",
+  "Nlw-Experts",
+  "Curso-em-Video-Git-e-Github",
+  "Sites-e-Sistemas-com-Python"
 ];
 
-function key(d,i){return d[3]||(i===0?"manutencao":"redes")}
-function openByLang(d){
- var r=d[3],l=d[7];
- if(l==="Python")return{u:"https://github.dev/"+USER+"/"+r,t:"Abrir código Python"};
- if(l==="Git")return{u:"https://github.com/"+USER+"/"+r,t:"Abrir repositório"};
- return{u:"https://stackblitz.com/github/"+USER+"/"+r,t:"Abrir projeto ("+l+")"};
-}
-function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")}
-function cap(d){return d[4]+"\n\n"+d[5]+" "+TAGS}
-
-var cats=["Todos"];D.forEach(function(d){if(cats.indexOf(d[2])<0)cats.push(d[2])});
-var cur="Todos",tabs=document.getElementById("tabs"),grid=document.getElementById("grid");
-
-function draw(){
- tabs.innerHTML="";
- cats.forEach(function(c){var b=document.createElement("button");b.textContent=c;b.setAttribute("aria-pressed",c===cur);b.onclick=function(){cur=c;draw()};tabs.appendChild(b)});
- grid.innerHTML="";
- D.forEach(function(d,i){
-  if(cur!=="Todos"&&d[2]!==cur)return;
-  var c=document.createElement("article");c.className="card"+(d[6]?" hl":"");
-  var n=(VIDEOS[key(d,i)]||[]).length, links="";
+// ESTRUTURA DOS DADOS
+// [0:Emoji, 1:Título, 2:Categoria, 3:Repo, 4:Descrição, 5:Hashtags, 6:Destaque(1/0), 7:Tecnologia, 8:URL Custom]
+var D = [
+  // --- REPOSITÓRIOS ADICIONADOS ---
+  ["📊", "Projeto Dio Power BI", "Power BI & Dados", "Projeto-Dio-Power-BI", "Dashboards e relatórios interativos desenvolvidos no bootcamp Power BI da DIO. Análise visual de métricas corporativas, KPIs de vendas e modelagem de dados no DAX e Power Query.", "#PowerBI #DAX #BusinessIntelligence #DataAnalytics #DIO", 1, "Power BI"],
+  ["🤖", "IA com Python", "Inteligência Artificial", "IA-com-Python", "Algoritmos, aprendizado de máquina (Machine Learning), automação inteligente e processamento com Python. Implementação de modelos preditivos e visão computacional.", "#Python #IA #ArtificialIntelligence #MachineLearning #DataScience", 1, "Python"],
+  ["🐍", "Sites e Sistemas com Python", "Sistemas Python", "Sites-e-Sistemas-com-Python", "Desenvolvimento de aplicações web, APIs e automações completas utilizando frameworks e bibliotecas modernas em Python (Flask, Django, Streamlit, etc).", "#Python #WebDevelopment #Flask #Django #Backend", 1, "Python"],
   
-  if(d[3]){
-   var o=openByLang(d);
-   if(d[7]==="Python"){
-    links='<a class="btn p" href="'+(location.hostname.indexOf("github.io")>=0?"projetos/"+d[3]+"/":"https://"+USER+".github.io/"+d[3]+"/")+'" target="_blank" rel="noopener">Abrir no navegador</a><a class="btn" href="https://github.dev/'+USER+'/'+d[3]+'" target="_blank" rel="noopener">Ver código</a>';
-   }else if(SITES.indexOf(d[3])>=0){
-    var siteUrl = d[8] || (location.hostname.indexOf("github.io")>=0 && d[3]!=="Toplim-Catalogo-Virtual--Projeto-Final-" ? "projetos/"+d[3]+"/" : "https://"+USER+".github.io/"+d[3]+"/");
-    links='<a class="btn p" href="'+siteUrl+'" target="_blank" rel="noopener">Ver site</a>';
-   }else{
-    links='<span class="btn" style="opacity:.65;cursor:default">Site em construção</span><a class="btn" href="'+U2+d[3]+'" target="_blank" rel="noopener">Ver código</a>';
-   }
-   if(SHOW_OPEN){
-    links += '<a class="btn" href="'+o.u+'" target="_blank" rel="noopener">'+o.t+'</a>';
-   }
-  }
+  // --- REPOSITÓRIOS E MÓDULOS EXISTENTES ---
+  ["🏆", "Projeto Final: Central de Sistemas T.I.", "Projeto Final", "projeto-final", "Central de sistemas unificada em arquivo único, com login e quatro módulos para a rotina de T.I.: chamados de manutenção, inventário de redes, estoque e finanças. Salvo localmente no navegador.", "#ProjetoFinal #TI #JavaScript #Manutencao #Redes", 1, "HTML/CSS/JS", "https://claude.ai/artifact/DHL4D6EK79y7tzxrdCYZai"],
+  ["🛠️", "Manutenção de Computadores", "Manutenção", "", "Diagnóstico, limpeza preventiva, substituição de hardware, bancada de eletrônica e formatação OS: rotina prática de suporte ao cliente.", "#ManutencaoDeComputadores #SuporteTecnico #Hardware", 1, "Hardware"],
+  ["🌐", "Redes e Infraestrutura", "Redes", "", "Cabeamento estruturado, configuração de roteadores, access points, sub-redes e diagnóstico avançado de conectividade.", "#Redes #Infraestrutura #SuporteTecnico", 1, "Redes"],
+  ["🛒", "Site Wpoh Store", "E-commerce", "Site-Wpohstore", "Plataforma e-commerce completa para a Wpoh Store, focada na exibição de catálogo de produtos e facilidade no fluxo de compra.", "#Ecommerce #DesenvolvimentoWeb #HTML #CSS #JavaScript", 0, "HTML/CSS/JS"],
+  ["📒", "Toplim Catálogo Virtual", "Catálogo", "Toplim-Catalogo-Virtual--Projeto-Final-", "Catálogo digital interativo para apresentação organizada e limpa de linha de produtos comerciais.", "#CatalogoVirtual #ProjetoFinal #DesenvolvimentoWeb", 0, "HTML/CSS/JS"],
+  ["💰", "Lumina Finance", "Sistemas", "financeiro", "Painel de gestão financeira com dashboard visual, fluxo de caixa, transações, metas e importação/exportação CSV/Excel.", "#Financas #Sistemas #Programacao", 0, "HTML/CSS/JS"],
+  ["🚀", "Landing Page FocoinTech", "Landing Pages", "LandingPageFocoinTech", "Página de conversão de alta eficiência criada para captação de clientes e divulgação da marca FocoinTech.", "#LandingPage #FrontEnd #WebDesign", 0, "HTML/CSS/JS"],
+  ["💳", "Página de Checkout", "Landing Pages", "P-gina-de-Checkout", "Interface de checkout otimizada para e-commerce, projetada para reduzir abandono de carrinho.", "#Checkout #UX #FrontEnd #Ecommerce", 0, "HTML/CSS/JS"],
+  ["🍺", "Sistema Depósito de Bebidas", "Sistemas", "Sistema-deposito-de-Bebidas-", "Gestão de estoque, vendas, caixa, relatórios e controle de fornecedores em arquitetura PWA instalável.", "#Sistemas #Estoque #Programacao", 0, "HTML/CSS/JS"],
+  ["🏬", "DYeshop", "E-commerce", "dyeshop", "Estrutura base de loja virtual para comércio eletrônico responsivo.", "#Ecommerce #WebDev #Projetos", 0, "HTML/CSS/JS"],
+  ["👟", "Loja Yshop Online Store", "E-commerce", "Loja-Yshop-Online-Store", "E-commerce com interface focada em vestuário e calçados, priorizando navegabilidade mobile.", "#Ecommerce #LojaOnline #FrontEnd", 0, "HTML/CSS/JS"],
+  ["🎓", "Site de Pedagogia", "Landing Pages", "Site-de-Pedagogia", "Website informativo para serviços educacionais e divulgação pedagógica.", "#WebSite #Educacao #FrontEnd", 0, "HTML/CSS/JS"],
+  ["📈", "Dropshipping e Afiliados", "Negócios Digitais", "Dropshipping-e-Afiliados", "Modelo de plataforma integrada a funis de venda e marketing digital de afiliados.", "#Dropshipping #Afiliados #MarketingDigital", 0, "HTML/CSS/JS"],
+  ["🎨", "World Designer", "Design", "World-Designer", "Portfólio de interfaces digitais, identidades visuais e assets de design web.", "#Design #WebDesign #FrontEnd", 0, "HTML/CSS/JS"],
+  ["⚙️", "Automação com Python", "Python", "Automacao-com-Python", "Scripts de automação com PyAutoGUI e Selenium para otimização de rotinas operacionais.", "#Python #Automacao #Produtividade", 0, "Python"],
+  ["📉", "Análise de Dados com Python", "Python", "Analise-de-Dados-com-Python", "Tratamento de dados, estatística aplicada e geração de insights operacionais com Pandas e Matplotlib.", "#Python #AnaliseDeDados #DataScience", 0, "Python"],
+  ["⚡", "NLW Experts", "Estudos", "Nlw-Experts", "Projetos avançados desenvolvidos durante o evento NLW Experts da Rocketseat.", "#NLW #Rocketseat #Programacao", 0, "JavaScript"],
+  ["🔀", "Git e GitHub (Curso em Vídeo)", "Estudos", "Curso-em-Video-Git-e-Github", "Controle de versionamento, fluxo de branches e práticas profissionais com Git/GitHub.", "#Git #GitHub #CursoEmVideo", 0, "Git"]
+];
 
-  c.innerHTML='<div class="cover" aria-hidden="true">'+d[0]+'</div><div class="body"><div class="cat">'+d[2]+'</div><h3>'+d[1]+'</h3><p class="cap">'+esc(cap(d))+'</p><div class="row">'+links+''+(n||SHOW_EMPTY_VIDEOS?'<button class="btn v" data-v="'+i+'">Vídeos Relacionados ('+n+')</button>':'')+'<button class="btn" data-i="'+i+'">Copiar legenda</button></div></div>';
-  grid.appendChild(c)});
+function key(d, i) { return d[3] || (i === 4 ? "manutencao" : "redes"); }
+
+function openByLang(d) {
+  var r = d[3], l = d[7];
+  if (l === "Python") return { u: "https://github.dev/" + USER + "/" + r, t: "Abrir no VS Code Web" };
+  if (l === "Power BI") return { u: "https://github.com/" + USER + "/" + r, t: "Ver Repositório Power BI" };
+  if (l === "Git") return { u: "https://github.com/" + USER + "/" + r, t: "Abrir Repositório" };
+  return { u: "https://stackblitz.com/github/" + USER + "/" + r, t: "Executar na Nuvem" };
 }
 
-var dlg=document.getElementById("dlg"),dbody=document.getElementById("dbody");
-function player(v){
- var u=v.u,m=u.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=|youtube\.com\/embed\/)([\w-]{11})/),h='<div class="vi"><h4>'+esc(v.t)+'</h4>';
- if(m)h+='<iframe src="https://www.youtube.com/embed/'+m[1]+'" title="'+esc(v.t)+'" allowfullscreen loading="lazy"></iframe>';
- else if(/\.(mp4|webm)(\?|$)/i.test(u))h+='<video controls preload="metadata" src="'+esc(u)+'"></video>';
- return h+'<p style="margin:8px 0 0"><a class="btn" href="'+esc(u)+'" target="_blank" rel="noopener">Assistir</a></p></div>';
+function esc(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
 }
-function openVideos(i){
- var d=D[i],list=VIDEOS[key(d,i)]||[];
- document.getElementById("dt").textContent="Vídeos Relacionados: "+d[1];
- dbody.innerHTML=list.length?list.map(player).join(""):'<p class="empty">Os vídeos deste projeto serão publicados em breve.</p>';
- if(dlg.showModal)dlg.showModal();else dlg.setAttribute("open","");
+
+function cap(d) {
+  return d[4] + "\n\n" + d[5] + " " + TAGS;
 }
-var runId=0;
-function sl(ms){return new Promise(function(r){setTimeout(r,ms)})}
-var ROWS=[['MOLO000251','Logitech','Mouse','1','25.95','6.50',''],['MOLO000192','Logitech','Mouse','2','19.95','5.00',''],['CAHA000251','Hashtag','Camisa','1','25.00','11.00',''],['CAHA000252','Hashtag','Camisa','2','25.00','11.00','Conferir estoque'],['MOMU000111','Multilaser','Mouse','1','11.99','3.40',''],['BOHA000251','Hashtag','Bone','1','25.00','11.00',''],['BOHA000252','Hashtag','Bone','2','25.00','11.00',''],['CAHA000273','Hashtag','Camisa','3','27.50','12.40','Troca de fornecedor'],['CAHA000274','Hashtag','Camisa','4','27.50','12.40',''],['CAHA000275','Hashtag','Camisa','5','27.50','12.40',''],['TELG000821','LG','Televisao','1','820.00','172.20',''],['TELG000252','LG','Televisao','2','250.00','62.50','']];
-function bar(l,p){return '<div class="br"><span>'+l+'</span><i style="width:'+p+'%"></i><b>'+String(p).replace('.',',')+'%</b></div>'}
-async function runDemo(i){
- var d=D[i],id=++runId;
- document.getElementById('dt').textContent='Executando: '+d[1];
- dbody.innerHTML='<pre class="log" id="lg"></pre><div id="rs"></div><p class="empty" id="nt"></p><div><button class="btn" id="rp">Executar de novo</button></div>';
- var lg=document.getElementById('lg'),rs=document.getElementById('rs');
- async function L(t,ms){if(id!==runId)throw 0;lg.textContent+=t+'\n';lg.scrollTop=lg.scrollHeight;await sl(ms||500)}
- document.getElementById('rp').onclick=function(){runDemo(i)};
- if(dlg.showModal){if(!dlg.open)dlg.showModal()}else dlg.setAttribute('open','');
- try{
-  if(d[3]==='Automacao-com-Python'){
-   document.getElementById('nt').textContent='Reprodução do codigo.py com os dados reais de produtos.csv (12 de 293 linhas). O script original usa pyautogui para controlar o mouse e o teclado do computador, por isso a execução real acontece só na máquina de quem roda.';
-   await L('$ python codigo.py');
-   await L('Passo 1: abrindo o Chrome e acessando o sistema da empresa...',900);
-   await L('Passo 2: login feito (e-mail e senha digitados)',900);
-   await L('Passo 3: lendo produtos.csv -> 293 linhas carregadas',800);
-   rs.innerHTML='<table class="tb"><thead><tr><th>codigo</th><th>marca</th><th>tipo</th><th>cat.</th><th>preço</th><th>custo</th><th>obs</th></tr></thead><tbody id="tbd"></tbody></table>';
-   for(var k=0;k<ROWS.length;k++){
-    await L('Passo 4: cadastrando '+ROWS[k][0]+' ('+ROWS[k][1]+' '+ROWS[k][2]+') ... enter',350);
-    var tr=document.createElement('tr');tr.innerHTML=ROWS[k].map(function(c){return '<td>'+c+'</td>'}).join('');document.getElementById('tbd').appendChild(tr);
-   }
-   await L('Passo 5: o laço repete até acabar as 293 linhas. Fim.',300);
-  }else{
-   document.getElementById('nt').textContent='Resultado real da execução do inicial.ipynb sobre cancelamentos_sample.csv (50.000 clientes), com a mesma lógica do notebook.';
-   await L('Passo 1: lendo cancelamentos_sample.csv -> 50000 linhas, 12 colunas',700);
-   await L('Passo 2: removendo a coluna CustomerID -> 11 colunas',700);
-   await L('Passo 3: dropna() -> 4 linhas vazias removidas, 49996 restantes',800);
-   await L('Passo 4: 28393 cancelaram (56,8%) | 21603 não cancelaram',800);
-   await L('Passo 5: taxa de cancelamento por grupo',700);
-   rs.innerHTML=bar('Contrato mensal',100)+bar('Contrato anual',46.4)+bar('Contrato trimestral',45.9)+bar('Mais de 4 ligações ao call center',99)+bar('Até 4 ligações',36.4)+bar('Atraso acima de 20 dias',100);
-   await L('Filtrando: sem contrato mensal, até 4 ligações, atraso até 20 dias...',1100);
-   rs.innerHTML+=bar('Base filtrada (26267 clientes)',18.4);
-   await L('Conclusão: a taxa de cancelamento cai de 56,8% para 18,4%. Fim.',300);
-  }
- }catch(e){}
-}
-dlg.addEventListener('close',function(){runId++});
-document.getElementById("close").onclick=function(){dlg.close()};
-dlg.addEventListener("click",function(e){if(e.target===dlg)dlg.close()});
-grid.addEventListener("click",function(e){
- var r=e.target.closest("button[data-r]");if(r){runDemo(+r.dataset.r);return}
- var v=e.target.closest("button[data-v]");if(v){openVideos(+v.dataset.v);return}
- var b=e.target.closest("button[data-i]");if(!b)return;
- var t=cap(D[b.dataset.i]),done=function(){b.textContent="Copiado";setTimeout(function(){b.textContent="Copiar legenda"},1500)};
- try{navigator.clipboard.writeText(t).then(done,function(){})}catch(x){}
+
+// ESTADO GLOBAL DA APLICAÇÃO
+var curCat = "Todos";
+var viewMode = "all";
+var currentUser = JSON.parse(localStorage.getItem("mp_user") || '{"name":"Visitante","logged":false}');
+
+// INICIALIZAÇÃO DE CATEGORIAS
+var cats = ["Todos"];
+D.forEach(function(d) {
+  if (cats.indexOf(d[2]) < 0) cats.push(d[2]);
 });
-draw();
+
+var tabsEl = document.getElementById("tabs");
+var gridEl = document.getElementById("grid");
+
+function updateStateUI() {
+  var nameEl = document.getElementById("userName");
+  var btnLog = document.getElementById("btnLoginToggle");
+  if (currentUser.logged) {
+    nameEl.textContent = currentUser.name;
+    btnLog.textContent = "Sair";
+  } else {
+    nameEl.textContent = "Visitante";
+    btnLog.textContent = "Login";
+  }
+}
+
+function draw() {
+  tabsEl.innerHTML = "";
+  cats.forEach(function(c) {
+    var b = document.createElement("button");
+    b.textContent = c;
+    b.setAttribute("aria-pressed", c === curCat);
+    b.onclick = function() { curCat = c; draw(); };
+    tabsEl.appendChild(b);
+  });
+
+  gridEl.innerHTML = "";
+  D.forEach(function(d, i) {
+    if (curCat !== "Todos" && d[2] !== curCat) return;
+    if (viewMode === "featured" && !d[6]) return;
+
+    var c = document.createElement("article");
+    c.className = "card" + (d[6] ? " hl" : "");
+    var n = (VIDEOS[key(d, i)] || []).length;
+    var links = "";
+
+    if (d[3]) {
+      var o = openByLang(d);
+      if (d[7] === "Python" || d[7] === "Power BI") {
+        var hostIsGh = location.hostname.indexOf("github.io") >= 0;
+        var directUrl = d[8] || (hostIsGh ? "projetos/" + d[3] + "/" : "https://" + USER + ".github.io/" + d[3] + "/");
+        links = '<button class="btn p" data-demo="' + i + '">Demonstrar / Rodar</button>' +
+                '<a class="btn" href="https://github.com/' + USER + '/' + d[3] + '" target="_blank" rel="noopener">Código GitHub</a>';
+      } else if (SITES.indexOf(d[3]) >= 0) {
+        var siteUrl = d[8] || (location.hostname.indexOf("github.io") >= 0 && d[3] !== "Toplim-Catalogo-Virtual--Projeto-Final-" ? "projetos/" + d[3] + "/" : "https://" + USER + ".github.io/" + d[3] + "/");
+        links = '<a class="btn p" href="' + siteUrl + '" target="_blank" rel="noopener">Acessar App / Site</a>';
+      } else {
+        links = '<a class="btn" href="' + U2 + d[3] + '" target="_blank" rel="noopener">Ver Repositório</a>';
+      }
+    } else {
+      links = '<button class="btn p" data-demo="' + i + '">Ver Detalhes Técnicos</button>';
+    }
+
+    c.innerHTML = '<div class="cover" aria-hidden="true">' + d[0] + 
+                  '<span class="badge-tag">' + (d[7] || "T.I.") + '</span></div>' +
+                  '<div class="body"><div class="cat">' + d[2] + '</div>' +
+                  '<h3>' + d[1] + '</h3>' +
+                  '<p class="cap">' + esc(cap(d)) + '</p>' +
+                  '<div class="row">' + links + 
+                  '<button class="btn sec" data-i="' + i + '">Copiar Legenda</button>' +
+                  '</div></div>';
+    gridEl.appendChild(c);
+  });
+}
+
+// DIÁLOGOS E MODAIS
+var dlg = document.getElementById("dlg");
+var dbody = document.getElementById("dbody");
+var loginDlg = document.getElementById("loginDlg");
+var configDlg = document.getElementById("configDlg");
+
+var runId = 0;
+function sl(ms) { return new Promise(function(r) { setTimeout(r, ms); }); }
+
+// SIMULADOR / DEMONSTRADOR INTEGRADO DE CÓDIGO E SISTEMAS
+async function runDemo(i) {
+  var d = D[i];
+  var id = ++runId;
+  document.getElementById('dt').textContent = 'Execução Integrada: ' + d[1];
+  dbody.innerHTML = '<pre class="log" id="lg"></pre><div id="rs"></div><p style="font-size:0.85rem; color:var(--mute);" id="nt"></p><div><button class="btn p" id="rp">Executar Novamente</button></div>';
+  
+  var lg = document.getElementById('lg');
+  var rs = document.getElementById('rs');
+
+  async function L(t, ms) {
+    if (id !== runId) throw 0;
+    lg.textContent += t + '\n';
+    lg.scrollTop = lg.scrollHeight;
+    await sl(ms || 400);
+  }
+
+  document.getElementById('rp').onclick = function() { runDemo(i); };
+  if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+
+  try {
+    if (d[3] === 'Projeto-Dio-Power-BI') {
+      document.getElementById('nt').textContent = 'Processamento de relatórios e painéis dinâmicos via Power BI Service API.';
+      await L('$ initialize_powerbi_engine --workspace "DIO_Analytics"');
+      await L('Carregando modelo relacional e tabela Fato_Vendas...', 600);
+      await L('Executando DAX: Total_Faturamento = SUMX(Vendas, Vendas[Qtd] * Vendas[Preco])', 700);
+      await L('Calculando Margem de Lucro YoY %...', 600);
+      rs.innerHTML = '<div class="tb-wrap"><table class="tb"><thead><tr><th>Regional</th><th>Faturamento</th><th>Meta (%)</th><th>Status</th></tr></thead><tbody><tr><td>Sudeste</td><td>R$ 485.200,00</td><td>112%</td><td>🟢 Acima</td></tr><tr><td>Sul</td><td>R$ 210.800,00</td><td>98%</td><td>🟡 Na Meta</td></tr><tr><td>Nordeste</td><td>R$ 175.400,00</td><td>105%</td><td>🟢 Acima</td></tr></tbody></table></div>';
+      await L('Renderização do dashboard finalizada com sucesso.', 300);
+
+    } else if (d[3] === 'IA-com-Python') {
+      document.getElementById('nt').textContent = 'Simulação de pipeline de Machine Learning (Treinamento e Inferência).';
+      await L('$ python train_model.py --dataset dataset_tech.csv');
+      await L('Importando pandas, scikit-learn e tensorflow...', 600);
+      await L('Divisão de dados: 80% treino, 20% teste. Tratando NaNs...', 700);
+      await L('Ajustando modelo RandomForestClassifier(n_estimators=100)...', 800);
+      await L('Acurácia do modelo: 96.4% | F1-Score: 0.95', 500);
+      rs.innerHTML = '<div style="padding:10px; background:var(--bg); border-radius:8px; border:1px solid var(--line); font-family:monospace;">Matriz de Confusão:<br>[ [450,  12],<br>  [ 18, 420] ]</div>';
+      await L('Modelo exportado para model_v1.pkl.', 300);
+
+    } else if (d[3] === 'Sites-e-Sistemas-com-Python') {
+      document.getElementById('nt').textContent = 'Subindo servidor web FastAPI / Flask com rotas de API RESTful.';
+      await L('$ uvicorn main:app --reload --port 8000');
+      await L('INFO:     Started server process [PID 12480]', 500);
+      await L('INFO:     Waiting for application startup.', 500);
+      await L('INFO:     Application startup complete.', 500);
+      await L('GET /api/v1/sistemas 200 OK (12ms)', 400);
+      await L('POST /api/v1/autenticar 200 OK (24ms)', 400);
+      rs.innerHTML = '<div style="padding:10px; background:var(--bg); border-radius:8px; border:1px solid var(--line);"><code style="color:var(--acc);">{"status": 200, "message": "Servidor Python Online", "modules": ["Auth", "Database", "API"]}</code></div>';
+
+    } else {
+      document.getElementById('nt').textContent = 'Execução estática de diagnósticos e logs do sistema.';
+      await L('$ system_check --repo ' + (d[3] || 'Hardware_Network'));
+      await L('Verificando integridade dos arquivos e dependências...', 500);
+      await L('Status do módulo: Operacional sem pendências.', 500);
+      rs.innerHTML = '<p style="color:var(--acc); font-weight:600;">Módulo verificado e pronto para implantação.</p>';
+    }
+  } catch (e) {}
+}
+
+// EVENTOS DE INTERAÇÃO
+document.getElementById("closeDlg").onclick = function() { dlg.close(); };
+document.getElementById("closeLogin").onclick = function() { loginDlg.close(); };
+document.getElementById("closeConfig").onclick = function() { configDlg.close(); };
+
+document.getElementById("btnLoginToggle").onclick = function() {
+  if (currentUser.logged) {
+    currentUser = { name: "Visitante", logged: false };
+    localStorage.setItem("mp_user", JSON.stringify(currentUser));
+    updateStateUI();
+  } else {
+    loginDlg.showModal();
+  }
+};
+
+document.getElementById("btnDoLogin").onclick = function() {
+  var email = document.getElementById("uEmail").value;
+  if (!email) email = "Mateus Pereira";
+  currentUser = { name: email.split("@")[0], logged: true };
+  localStorage.setItem("mp_user", JSON.stringify(currentUser));
+  updateStateUI();
+  loginDlg.close();
+};
+
+document.getElementById("btnGuestLogin").onclick = function() {
+  currentUser = { name: "Visitante Convidado", logged: false };
+  localStorage.setItem("mp_user", JSON.stringify(currentUser));
+  updateStateUI();
+  loginDlg.close();
+};
+
+document.getElementById("btnConfig").onclick = function() {
+  configDlg.showModal();
+};
+
+document.getElementById("btnSaveConfig").onclick = function() {
+  var th = document.getElementById("themeSelect").value;
+  viewMode = document.getElementById("viewModeSelect").value;
+  document.documentElement.setAttribute("data-theme", th);
+  localStorage.setItem("mp_theme", th);
+  localStorage.setItem("mp_viewmode", viewMode);
+  draw();
+  configDlg.close();
+};
+
+document.getElementById("btnClearStorage").onclick = function() {
+  if (confirm("Deseja realmente limpar o cache e as configurações locais?")) {
+    localStorage.clear();
+    location.reload();
+  }
+};
+
+gridEl.addEventListener("click", function(e) {
+  var demoBtn = e.target.closest("button[data-demo]");
+  if (demoBtn) { runDemo(+demoBtn.dataset.demo); return; }
+
+  var copyBtn = e.target.closest("button[data-i]");
+  if (copyBtn) {
+    var txt = cap(D[copyBtn.dataset.i]);
+    try {
+      navigator.clipboard.writeText(txt).then(function() {
+        copyBtn.textContent = "Copiado!";
+        setTimeout(function() { copyBtn.textContent = "Copiar Legenda"; }, 1500);
+      });
+    } catch (x) {}
+  }
+});
+
+// RESTAURAÇÃO DE CONFIGURAÇÕES SALVAS
+(function init() {
+  var savedTheme = localStorage.getItem("mp_theme") || "dark";
+  var savedView = localStorage.getItem("mp_viewmode") || "all";
+  document.documentElement.setAttribute("data-theme", savedTheme);
+  document.getElementById("themeSelect").value = savedTheme;
+  document.getElementById("viewModeSelect").value = savedView;
+  viewMode = savedView;
+  updateStateUI();
+  draw();
+})();
 </script>
 </body>
 </html>
