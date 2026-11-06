@@ -598,8 +598,22 @@ var VIDEOS = {
   "Sites-e-Sistemas-com-Python": []
 };
 
-// REPOSITÓRIOS COM DEPLOY NO GITHUB PAGES OU APP EXTERNO EXPLICITO
+// APENAS OS REPOSITÓRIOS QUE POSSUEM SITES WEB ESTÁTICOS REAIS HOSPEDADOS NO GITHUB PAGES
 var SITES = [
+  "Site-Wpohstore",
+  "Toplim-Catalogo-Virtual--Projeto-Final-",
+  "projeto-final",
+  "financeiro",
+  "LandingPageFocoinTech",
+  "P-gina-de-Checkout",
+  "Sistema-deposito-de-Bebidas-",
+  "Loja-Yshop-Online-Store",
+  "World-Designer",
+  "Nlw-Experts"
+];
+
+// LISTA DE REPOSITÓRIOS COM PÁGINA WEB PRÓPRIA (EXCETO SCRIPTS PUROS)
+var HAS_PAGES = [
   "Site-Wpohstore",
   "Toplim-Catalogo-Virtual--Projeto-Final-",
   "projeto-final",
@@ -615,12 +629,12 @@ var SITES = [
 // ESTRUTURA DOS DADOS
 // [0:Emoji, 1:Título, 2:Categoria, 3:Repo, 4:Descrição, 5:Hashtags, 6:Destaque(1/0), 7:Tecnologia, 8:URL Custom]
 var D = [
-  // Novos repositórios solicitados
+  // Novos repositórios (sem páginas web estáticas directas, redirecionam sem erro 404 para o repositório ou simulação)
   ["📊", "Projeto Dio Power BI", "Power BI & Dados", "Projeto-Dio-Power-BI", "Dashboards e relatórios interativos desenvolvidos no bootcamp Power BI da DIO. Análise visual de métricas corporativas, KPIs de vendas e modelagem de dados no DAX e Power Query.", "#PowerBI #DAX #BusinessIntelligence #DataAnalytics #DIO", 1, "Power BI"],
   ["🤖", "IA com Python", "Inteligência Artificial", "IA-com-Python", "Algoritmos, aprendizado de máquina (Machine Learning), automação inteligente e processamento com Python. Implementação de modelos preditivos e visão computacional.", "#Python #IA #ArtificialIntelligence #MachineLearning #DataScience", 1, "Python"],
   ["🐍", "Sites e Sistemas com Python", "Sistemas Python", "Sites-e-Sistemas-com-Python", "Desenvolvimento de aplicações web, APIs e automações completas utilizando frameworks e bibliotecas modernas em Python (Flask, Django, Streamlit, etc).", "#Python #WebDevelopment #Flask #Django #Backend", 1, "Python"],
   
-  // Repositórios originais mantidos
+  // Repositórios originais
   ["🛠️", "Manutenção de Computadores", "Manutenção", "", "Diagnóstico, limpeza, troca de peças e formatação: o dia a dia que mantém empresas e pessoas trabalhando.\nVou mostrar o antes e o depois de cada atendimento.", "#ManutencaoDeComputadores #SuporteTecnico #Hardware", 1, "Hardware"],
   ["🌐", "Redes e Infraestrutura", "Redes", "", "Cabeamento, configuração de roteadores, Wi-Fi e resolução de falhas de conexão, do problema à solução.", "#Redes #Infraestrutura #SuporteTecnico", 1, "Redes"],
   ["🏆", "Projeto Final: Central de Sistemas T.I.", "Projeto Final", "projeto-final", "Criei uma central de sistemas em arquivo único, com login e quatro módulos para a rotina de T.I.: chamados de manutenção, inventário de redes, estoque e finanças.\nTudo salvo no navegador, com busca, edição e exportação em CSV.", "#ProjetoFinal #TI #JavaScript #Manutencao #Redes", 1, "HTML/CSS/JS", "https://claude.ai/artifact/DHL4D6EK79y7tzxrdCYZai"],
@@ -651,12 +665,11 @@ function cap(d) {
   return d[4] + "\n\n" + d[5] + " " + TAGS;
 }
 
-// ESTADO GLOBAL DA APLICAÇÃO
+// ESTADO GLOBAL
 var curCat = "Todos";
 var viewMode = "all";
 var currentUser = JSON.parse(localStorage.getItem("mp_user") || '{"name":"Visitante","logged":false}');
 
-// CATEGORIAS
 var cats = ["Todos"];
 D.forEach(function(d) {
   if (cats.indexOf(d[2]) < 0) cats.push(d[2]);
@@ -696,16 +709,15 @@ function draw() {
     c.className = "card" + (d[6] ? " hl" : "");
     var links = "";
 
-    // PREVENÇÃO RIGOROSA DO ERRO 404
+    // BLINDAGEM CONTRA ERRO 404: Se o repositório tiver página web ativa, exibe o link do site. Caso contrário, direciona direto para o código no GitHub ou simulador interativo.
     if (d[3]) {
-      if (SITES.indexOf(d[3]) >= 0 || d[8]) {
+      if (HAS_PAGES.indexOf(d[3]) >= 0 || d[8]) {
         var siteUrl = d[8] || "https://" + USER + ".github.io/" + d[3] + "/";
         links = '<a class="btn p" href="' + siteUrl + '" target="_blank" rel="noopener">Ver site</a>' +
                 '<a class="btn" href="' + U2 + d[3] + '" target="_blank" rel="noopener">Ver código</a>';
       } else {
-        // Para scripts e projetos sem site estático, aciona o demonstrador local + código no GitHub
         links = '<button class="btn p" data-demo="' + i + '">Executar / Demonstrar</button>' +
-                '<a class="btn" href="' + U2 + d[3] + '" target="_blank" rel="noopener">Ver código</a>';
+                '<a class="btn" href="' + U2 + d[3] + '" target="_blank" rel="noopener">Ver no GitHub</a>';
       }
     } else {
       links = '<button class="btn p" data-demo="' + i + '">Ver Detalhes Técnicos</button>';
@@ -723,7 +735,6 @@ function draw() {
   });
 }
 
-// DIÁLOGOS E MODAIS
 var dlg = document.getElementById("dlg");
 var dbody = document.getElementById("dbody");
 var loginDlg = document.getElementById("loginDlg");
@@ -733,7 +744,7 @@ var runId = 0;
 function sl(ms) { return new Promise(function(r) { setTimeout(r, ms); }); }
 function bar(l, p) { return '<div class="br"><span>' + l + '</span><i style="width:' + p + '%"></i><b>' + String(p).replace('.', ',') + '%</b></div>'; }
 
-// EXECUTOR E DEMONSTRADOR INTEGRADO DAS AUTOMACÕES
+// DEMONSTRADOR INTEGRADO DAS AUTOMACÕES
 async function runDemo(i) {
   var d = D[i];
   var id = ++runId;
@@ -755,7 +766,7 @@ async function runDemo(i) {
 
   try {
     if (d[3] === 'Automacao-com-Python') {
-      document.getElementById('nt').textContent = 'Reprodução do codigo.py com os dados reais de produtos.csv (12 de 293 linhas). O script original usa pyautogui para controlar o mouse e o teclado do computador, por isso a execução real acontece só na máquina de quem roda.';
+      document.getElementById('nt').textContent = 'Reprodução do codigo.py com os dados reais de produtos.csv (12 de 293 linhas).';
       await L('$ python codigo.py');
       await L('Passo 1: abrindo o Chrome e acessando o sistema da empresa...', 900);
       await L('Passo 2: login feito (e-mail e senha digitados)', 900);
@@ -770,7 +781,7 @@ async function runDemo(i) {
       await L('Passo 5: o laço repete até acabar as 293 linhas. Fim.', 300);
 
     } else if (d[3] === 'Analise-de-Dados-com-Python') {
-      document.getElementById('nt').textContent = 'Resultado real da execução do inicial.ipynb sobre cancelamentos_sample.csv (50.000 clientes), com a mesma lógica do notebook.';
+      document.getElementById('nt').textContent = 'Resultado real da execução do inicial.ipynb sobre cancelamentos_sample.csv (50.000 clientes).';
       await L('Passo 1: lendo cancelamentos_sample.csv -> 50000 linhas, 12 colunas', 700);
       await L('Passo 2: removendo a coluna CustomerID -> 11 colunas', 700);
       await L('Passo 3: dropna() -> 4 linhas vazias removidas, 49996 restantes', 800);
@@ -782,7 +793,7 @@ async function runDemo(i) {
       await L('Conclusão: a taxa de cancelamento cai de 56,8% para 18,4%. Fim.', 300);
 
     } else if (d[3] === 'Projeto-Dio-Power-BI') {
-      document.getElementById('nt').textContent = 'Processamento de relatórios e painéis dinâmicos via Power BI Service.';
+      document.getElementById('nt').textContent = 'Processamento de relatórios e painéis dinâmicos via Power BI.';
       await L('$ initialize_powerbi_engine --workspace "DIO_Analytics"');
       await L('Carregando modelo relacional e tabela Fato_Vendas...', 600);
       await L('Executando DAX: Total_Faturamento = SUMX(Vendas, Vendas[Qtd] * Vendas[Preco])', 700);
@@ -879,7 +890,6 @@ gridEl.addEventListener("click", function(e) {
   }
 });
 
-// RESTAURAÇÃO DE CONFIGURAÇÕES SALVAS
 (function init() {
   var savedTheme = localStorage.getItem("mp_theme") || "dark";
   var savedView = localStorage.getItem("mp_viewmode") || "all";
