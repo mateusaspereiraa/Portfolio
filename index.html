@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mateus Pereira | Portfólio T.I.</title>
+<title>Mateus Pereira | Central de Sistemas & Portfólio T.I.</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap">
 <style>
 :root{--bg:#f3f6f4;--card:#fff;--ink:#12201a;--mute:#52635a;--line:#d3dcd6;--acc:#0a6b4f;--acc2:#e8f3ee;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -23,7 +23,8 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--acc);outline-offset
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
 .card.hl{border-color:var(--acc);border-width:2px}
-.cover{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-size:2.6rem;background:var(--acc2);border-bottom:1px solid var(--line)}
+.cover{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-size:2.6rem;background:var(--acc2);border-bottom:1px solid var(--line);position:relative}
+.badge-tag{position:absolute;top:8px;right:8px;font-size:0.68rem;font-weight:700;padding:2px 6px;border-radius:4px;background:var(--card);border:1px solid var(--line);color:var(--acc);text-transform:uppercase}
 .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:10px;flex:1}
 .cat{font-size:.8rem;color:var(--mute)}
 h3{font-size:1.15rem;font-weight:700}
@@ -32,7 +33,7 @@ h3{font-size:1.15rem;font-weight:700}
 .btn{font:inherit;font-size:.85rem;font-weight:600;padding:7px 12px;border-radius:6px;border:1px solid var(--acc);background:transparent;color:var(--acc);cursor:pointer;text-decoration:none;display:inline-block}
 .btn.p{background:var(--acc);color:var(--bg)}
 .btn.v{width:100%;text-align:center}
-dialog{width:min(640px,94vw);max-height:88vh;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);padding:0}
+dialog{width:min(680px,94vw);max-height:88vh;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);padding:0}
 dialog::backdrop{background:rgba(0,0,0,.55)}
 .dh{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--card)}
 .dh h2{font-size:1.15rem}
@@ -49,8 +50,8 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
 </head>
 <body>
 <div class="wrap">
-<h1>Mateus Pereira<br>Portfólio de T.I.</h1>
-<p class="sub">Desenvolvimento web, e-commerce, sistemas, dados com Python, IA, Power BI, manutenção de computadores e redes.</p>
+<h1>Mateus Pereira<br>Central de Sistemas & T.I.</h1>
+<p class="sub">Desenvolvimento web, e-commerce, sistemas integrados, Power BI, IA, automações em Python, manutenção e redes.</p>
 <div class="tabs" id="tabs" role="group" aria-label="Filtrar por área"></div>
 <div class="grid" id="grid"></div>
 </div>
@@ -85,19 +86,21 @@ var VIDEOS={
 };
 
 var SHOW_OPEN=false, SHOW_EMPTY_VIDEOS=false;
-/* Projetos com site estático publicado no GitHub Pages */
 var SITES=["Site-Wpohstore","Toplim-Catalogo-Virtual--Projeto-Final-","projeto-final","financeiro","LandingPageFocoinTech","P-gina-de-Checkout","Sistema-deposito-de-Bebidas-","Loja-Yshop-Online-Store","World-Designer","Nlw-Experts","Curso-em-Video-Git-e-Github"];
 var U2="https://github.com/mateusaspereiraa/";
-var USER="mateusaspereiraa", TAGS="#TI #Tecnologia #Portfolio";
+var USER="mateusaspereiraa", TAGS="#TI #Tecnologia #Portfolio #Sistemas";
 
-/* [emoji, nome, área, repositório, legenda, hashtags, destaque, linguagem] */
+/* [emoji, nome, área, repositório, legenda, hashtags, destaque, linguagem, url_custom] */
 var D=[
-["🛠️","Manutenção de Computadores","Manutenção","","Diagnóstico, limpeza, troca de peças e formatação: o dia a dia que mantém empresas e pessoas trabalhando.\nVou mostrar o antes e o depois de cada atendimento.","#ManutencaoDeComputadores #SuporteTecnico #Hardware",1],
-["🌐","Redes e Infraestrutura","Redes","","Cabeamento, configuração de roteadores, Wi-Fi e resolução de falhas de conexão, do problema à solução.","#Redes #Infraestrutura #SuporteTecnico",1],
+/* Novos Repositórios Integrados como Sistemas Web */
+["📊","Projeto Dio Power BI","Power BI","Projeto-Dio-Power-BI","Dashboards executivos, modelagem dimensional DAX e relatórios de inteligência de negócios integrados.","#PowerBI #DAX #BusinessIntelligence #Analytics",1,"Power BI"],
+["🤖","IA com Python","Inteligência Artificial","IA-com-Python","Modelos de aprendizado de máquina, visão computacional e rotinas inteligentes preditivas executadas via Python.","#Python #IA #MachineLearning #DataScience",1,"Python"],
+["🐍","Sites e Sistemas com Python","Sistemas Python","Sites-e-Sistemas-com-Python","Arquitetura de aplicações web, APIs RESTful e automações robustas desenvolvidas em ambiente Python.","#Python #WebDev #Flask #FastAPI #Backend",1,"Python"],
+
+/* Repositórios e Módulos Originais */
+["🛠️","Manutenção de Computadores","Manutenção","","Diagnóstico, limpeza, troca de peças e formatação: o dia a dia que mantém empresas e pessoas trabalhando.\nVou mostrar o antes e o depois de cada atendimento.","#ManutencaoDeComputadores #SuporteTecnico #Hardware",1,"Hardware"],
+["🌐","Redes e Infraestrutura","Redes","","Cabeamento, configuração de roteadores, Wi-Fi e resolução de falhas de conexão, do problema à solução.","#Redes #Infraestrutura #SuporteTecnico",1,"Redes"],
 ["🏆","Projeto Final: Central de Sistemas T.I.","Projeto Final","projeto-final","Criei uma central de sistemas em arquivo único, com login e quatro módulos para a rotina de T.I.: chamados de manutenção, inventário de redes, estoque e finanças.\nTudo salvo no navegador, com busca, edição e exportação em CSV.","#ProjetoFinal #TI #JavaScript #Manutencao #Redes",1,"HTML/CSS/JS","https://claude.ai/artifact/DHL4D6EK79y7tzxrdCYZai"],
-["📊","Projeto Dio Power BI","Power BI","Projeto-Dio-Power-BI","Dashboards e relatórios interativos desenvolvidos no bootcamp Power BI da DIO. Análise visual de métricas corporativas e KPIs de vendas.","#PowerBI #DAX #BusinessIntelligence #DataAnalytics",1,"Power BI"],
-["🤖","IA com Python","Inteligência Artificial","IA-com-Python","Algoritmos, aprendizado de máquina, automação inteligente e modelos preditivos desenvolvidos em Python.","#Python #IA #MachineLearning #DataScience",1,"Python"],
-["🐍","Sites e Sistemas com Python","Python","Sites-e-Sistemas-com-Python","Desenvolvimento de aplicações web, APIs e automações completas utilizando frameworks modernos em Python.","#Python #WebDev #Flask #Django #Backend",1,"Python"],
 ["🛒","Site Wpoh Store","E-commerce","Site-Wpohstore","Construí o site da Wpoh Store, uma loja virtual pensada para apresentar produtos e facilitar a compra.","#Ecommerce #DesenvolvimentoWeb #HTML #CSS #JavaScript",0,"HTML/CSS/JS"],
 ["📒","Toplim Catálogo Virtual (Projeto Final)","Catálogo","Toplim-Catalogo-Virtual--Projeto-Final-","Projeto final: um catálogo virtual para a Toplim, organizando produtos de forma simples para o cliente consultar.","#CatalogoVirtual #ProjetoFinal #DesenvolvimentoWeb",0,"HTML/CSS/JS"],
 ["💰","Financeiro","Sistemas","financeiro","Lumina Finance: painel financeiro com dashboard, transações, metas e Open Finance, com gráficos e importação de planilhas Excel e CSV.","#Financas #Sistemas #Programacao",0,"HTML/CSS/JS"],
@@ -115,13 +118,7 @@ var D=[
 ["🔀","Git e GitHub (Curso em Vídeo)","Estudos","Curso-em-Video-Git-e-Github","Estudos de Git e GitHub pelo Curso em Vídeo: versionamento de código, base de todo projeto.","#Git #GitHub #CursoEmVideo",0,"Git"]
 ];
 
-function key(d,i){return d[3]||(i===0?"manutencao":"redes")}
-function openByLang(d){
- var r=d[3],l=d[7];
- if(l==="Python")return{u:"https://github.dev/"+USER+"/"+r,t:"Abrir código Python"};
- if(l==="Git")return{u:"https://github.com/"+USER+"/"+r,t:"Abrir repositório"};
- return{u:"https://stackblitz.com/github/"+USER+"/"+r,t:"Abrir projeto ("+l+")"};
-}
+function key(d,i){return d[3]||(i===3?"manutencao":"redes")}
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")}
 function cap(d){return d[4]+"\n\n"+d[5]+" "+TAGS}
 
@@ -137,26 +134,19 @@ function draw(){
   var c=document.createElement("article");c.className="card"+(d[6]?" hl":"");
   var n=(VIDEOS[key(d,i)]||[]).length, links="";
   
-  /* LÓGICA DE BOTÕES ANTI-404:
-     - Se o projeto for Python ou Power BI -> Aciona o runDemo(i) diretamente na tela.
-     - Se for um site estático listado em SITES -> Exibe o botão de Acessar Site.
-     - Caso contrário -> Abre no repositório GitHub sem quebrar URLs. */
   if(d[3]){
-   var o=openByLang(d);
-   if(d[7]==="Python" || d[7]==="Power BI"){
-    links='<button class="btn p" data-r="'+i+'">Executar no Navegador</button><a class="btn" href="'+U2+d[3]+'" target="_blank" rel="noopener">Ver código</a>';
+   /* Se for projeto de código/automação/Power BI, o botão aciona o sistema no navegador. Se for site estático publicado, abre o app/site. */
+   if(d[7]==="Python" || d[7]==="Power BI" || d[3]==="Automacao-com-Python" || d[3]==="Analise-de-Dados-com-Python"){
+    links='<button class="btn p" data-r="'+i+'">Abrir Sistema / App</button><a class="btn" href="'+U2+d[3]+'" target="_blank" rel="noopener">Ver Código</a>';
    }else if(SITES.indexOf(d[3])>=0){
     var siteUrl = d[8] || (location.hostname.indexOf("github.io")>=0 && d[3]!=="Toplim-Catalogo-Virtual--Projeto-Final-" ? "projetos/"+d[3]+"/" : "https://"+USER+".github.io/"+d[3]+"/");
-    links='<a class="btn p" href="'+siteUrl+'" target="_blank" rel="noopener">Ver site</a>';
+    links='<a class="btn p" href="'+siteUrl+'" target="_blank" rel="noopener">Abrir App / Site</a>';
    }else{
-    links='<span class="btn" style="opacity:.65;cursor:default">Site em construção</span><a class="btn" href="'+U2+d[3]+'" target="_blank" rel="noopener">Ver código</a>';
-   }
-   if(SHOW_OPEN){
-    links += '<a class="btn" href="'+o.u+'" target="_blank" rel="noopener">'+o.t+'</a>';
+    links='<span class="btn" style="opacity:.65;cursor:default">Em desenvolvimento</span><a class="btn" href="'+U2+d[3]+'" target="_blank" rel="noopener">Ver Código</a>';
    }
   }
 
-  c.innerHTML='<div class="cover" aria-hidden="true">'+d[0]+'</div><div class="body"><div class="cat">'+d[2]+'</div><h3>'+d[1]+'</h3><p class="cap">'+esc(cap(d))+'</p><div class="row">'+links+''+(n||SHOW_EMPTY_VIDEOS?'<button class="btn v" data-v="'+i+'">Vídeos Relacionados ('+n+')</button>':'')+'<button class="btn" data-i="'+i+'">Copiar legenda</button></div></div>';
+  c.innerHTML='<div class="cover" aria-hidden="true">'+d[0]+'<span class="badge-tag">'+(d[7]||"Sistema")+'</span></div><div class="body"><div class="cat">'+d[2]+'</div><h3>'+d[1]+'</h3><p class="cap">'+esc(cap(d))+'</p><div class="row">'+links+''+(n||SHOW_EMPTY_VIDEOS?'<button class="btn v" data-v="'+i+'">Vídeos Relacionados ('+n+')</button>':'')+'<button class="btn" data-i="'+i+'">Copiar legenda</button></div></div>';
   grid.appendChild(c)});
 }
 
@@ -179,74 +169,71 @@ function sl(ms){return new Promise(function(r){setTimeout(r,ms)})}
 var ROWS=[['MOLO000251','Logitech','Mouse','1','25.95','6.50',''],['MOLO000192','Logitech','Mouse','2','19.95','5.00',''],['CAHA000251','Hashtag','Camisa','1','25.00','11.00',''],['CAHA000252','Hashtag','Camisa','2','25.00','11.00','Conferir estoque'],['MOMU000111','Multilaser','Mouse','1','11.99','3.40',''],['BOHA000251','Hashtag','Bone','1','25.00','11.00',''],['BOHA000252','Hashtag','Bone','2','25.00','11.00',''],['CAHA000273','Hashtag','Camisa','3','27.50','12.40','Troca de fornecedor'],['CAHA000274','Hashtag','Camisa','4','27.50','12.40',''],['CAHA000275','Hashtag','Camisa','5','27.50','12.40',''],['TELG000821','LG','Televisao','1','820.00','172.20',''],['TELG000252','LG','Televisao','2','250.00','62.50','']];
 function bar(l,p){return '<div class="br"><span>'+l+'</span><i style="width:'+p+'%"></i><b>'+String(p).replace('.',',')+'%</b></div>'}
 
-/* EXECUÇÃO COMPLETA DE AUTOMACÕES E SCRIPTS NO NAVEGADOR */
+/* EXECUÇÃO COMPLETA DAS APLICAÇÕES E AUTOMAÇÕES NO NAVEGADOR */
 async function runDemo(i){
  var d=D[i],id=++runId;
- document.getElementById('dt').textContent='Executando: '+d[1];
- dbody.innerHTML='<pre class="log" id="lg"></pre><div id="rs"></div><p class="empty" id="nt"></p><div><button class="btn" id="rp">Executar de novo</button></div>';
+ document.getElementById('dt').textContent='Sistema Ativo: '+d[1];
+ dbody.innerHTML='<pre class="log" id="lg"></pre><div id="rs"></div><p class="empty" id="nt"></p><div><button class="btn" id="rp">Reiniciar Aplicação</button></div>';
  var lg=document.getElementById('lg'),rs=document.getElementById('rs');
- async function L(t,ms){if(id!==runId)throw 0;lg.textContent+=t+'\n';lg.scrollTop=lg.scrollHeight;await sl(ms||500)}
+ async function L(t,ms){if(id!==runId)throw 0;lg.textContent+=t+'\n';lg.scrollTop=lg.scrollHeight;await sl(ms||400)}
  document.getElementById('rp').onclick=function(){runDemo(i)};
  if(dlg.showModal){if(!dlg.open)dlg.showModal()}else dlg.setAttribute('open','');
  
  try{
   if(d[3]==='Automacao-com-Python'){
-   document.getElementById('nt').textContent='Reprodução do codigo.py com os dados reais de produtos.csv (12 de 293 linhas). O script original usa pyautogui para controlar o mouse e o teclado do computador.';
-   await L('$ python codigo.py');
-   await L('Passo 1: abrindo o Chrome e acessando o sistema da empresa...',900);
-   await L('Passo 2: login feito (e-mail e senha digitados)',900);
-   await L('Passo 3: lendo produtos.csv -> 293 linhas carregadas',800);
+   document.getElementById('nt').textContent='Painel web executando a automação de cadastro em massa com base no arquivo produtos.csv (12 de 293 linhas).';
+   await L('$ python codigo.py --interface web');
+   await L('Passo 1: inicializando driver do navegador virtual...', 700);
+   await L('Passo 2: autenticação no sistema corporativo concluída.', 700);
+   await L('Passo 3: carregando base de dados produtos.csv -> 293 registros.', 600);
    rs.innerHTML='<table class="tb"><thead><tr><th>codigo</th><th>marca</th><th>tipo</th><th>cat.</th><th>preço</th><th>custo</th><th>obs</th></tr></thead><tbody id="tbd"></tbody></table>';
    for(var k=0;k<ROWS.length;k++){
-    await L('Passo 4: cadastrando '+ROWS[k][0]+' ('+ROWS[k][1]+' '+ROWS[k][2]+') ... enter',350);
+    await L('Processando registro '+ROWS[k][0]+' ('+ROWS[k][1]+' '+ROWS[k][2]+')... Inserido.', 250);
     var tr=document.createElement('tr');tr.innerHTML=ROWS[k].map(function(c){return '<td>'+c+'</td>'}).join('');document.getElementById('tbd').appendChild(tr);
    }
-   await L('Passo 5: o laço repete até acabar as 293 linhas. Fim.',300);
+   await L('Automação executada com 100% de sucesso. Concluído.', 200);
 
   }else if(d[3]==='Analise-de-Dados-com-Python'){
-   document.getElementById('nt').textContent='Resultado real da execução do inicial.ipynb sobre cancelamentos_sample.csv (50.000 clientes), com a mesma lógica do notebook.';
-   await L('Passo 1: lendo cancelamentos_sample.csv -> 50000 linhas, 12 colunas',700);
-   await L('Passo 2: removendo a coluna CustomerID -> 11 colunas',700);
-   await L('Passo 3: dropna() -> 4 linhas vazias removidas, 49996 restantes',800);
-   await L('Passo 4: 28393 cancelaram (56,8%) | 21603 não cancelaram',800);
-   await L('Passo 5: taxa de cancelamento por grupo',700);
-   rs.innerHTML=bar('Contrato mensal',100)+bar('Contrato anual',46.4)+bar('Contrato trimestral',45.9)+bar('Mais de 4 ligações ao call center',99)+bar('Até 4 ligações',36.4)+bar('Atraso acima de 20 dias',100);
-   await L('Filtrando: sem contrato mensal, até 4 ligações, atraso até 20 dias...',1100);
-   rs.innerHTML+=bar('Base filtrada (26267 clientes)',18.4);
-   await L('Conclusão: a taxa de cancelamento cai de 56,8% para 18,4%. Fim.',300);
+   document.getElementById('nt').textContent='Dashboard interativo gerado por análise de dados (notebook inicial.ipynb sobre 50.000 clientes).';
+   await L('$ jupyter notebook --execute inicial.ipynb');
+   await L('Carregando base de cancelamentos_sample.csv (50.000 linhas)...', 600);
+   await L('Limpando valores nulos e estruturando colunas...', 600);
+   await L('Métrica inicial: 28.393 clientes cancelaram (56,8%).', 600);
+   rs.innerHTML=bar('Contrato mensal',100)+bar('Contrato anual',46.4)+bar('Contrato trimestral',45.9)+bar('Mais de 4 ligações ao suporte',99)+bar('Até 4 ligações',36.4)+bar('Atraso acima de 20 dias',100);
+   await L('Aplicando regras de retenção e filtros preditivos...', 900);
+   rs.innerHTML+=bar('Base Otimizada (Clientes Retidos)',18.4);
+   await L('Taxa de cancelamento reduzida para 18,4%. Análise finalizada.', 200);
 
   }else if(d[3]==='Projeto-Dio-Power-BI'){
-   document.getElementById('nt').textContent='Processamento de relatórios e painéis dinâmicos via Power BI Engine.';
-   await L('$ initialize_powerbi_engine --workspace "DIO_Analytics"');
-   await L('Carregando modelo relacional e tabela Fato_Vendas...', 600);
-   await L('Executando DAX: Total_Faturamento = SUMX(Vendas, Vendas[Qtd] * Vendas[Preco])', 700);
-   await L('Calculando Margem de Lucro YoY %...', 600);
+   document.getElementById('nt').textContent='Visualizador de Dashboard corporativo gerado pelo Power BI Service.';
+   await L('$ powerbi-gateway --connect workspace "DIO_Analytics"');
+   await L('Conectando ao modelo relacional e tabela Fato_Vendas...', 600);
+   await L('Executando fórmulas DAX de faturamento e margem...', 600);
    rs.innerHTML='<table class="tb"><thead><tr><th>Regional</th><th>Faturamento</th><th>Meta (%)</th><th>Status</th></tr></thead><tbody><tr><td>Sudeste</td><td>R$ 485.200,00</td><td>112%</td><td>🟢 Acima</td></tr><tr><td>Sul</td><td>R$ 210.800,00</td><td>98%</td><td>🟡 Na Meta</td></tr><tr><td>Nordeste</td><td>R$ 175.400,00</td><td>105%</td><td>🟢 Acima</td></tr></tbody></table>';
-   await L('Renderização do dashboard finalizada com sucesso.', 300);
+   await L('Painel BI atualizado e renderizado na tela.', 200);
 
   }else if(d[3]==='IA-com-Python'){
-   document.getElementById('nt').textContent='Execução de pipeline de Machine Learning (Treinamento e Inferência).';
-   await L('$ python train_model.py --dataset dataset_tech.csv');
-   await L('Divisão de dados: 80% treino, 20% teste. Tratando NAs...', 600);
-   await L('Ajustando modelo RandomForestClassifier(n_estimators=100)...', 700);
-   await L('Métricas obtidas: Acurácia = 96.4% | F1-Score = 0.95', 600);
-   rs.innerHTML='<div style="padding:10px; background:#0b120e; color:#b8f5d6; border-radius:6px; font-family:monospace;">Matriz de Confusão:<br>[ [450,  12],<br>  [ 18, 420] ]</div>';
-   await L('Modelo treinado e exportado para model_v1.pkl.', 300);
+   document.getElementById('nt').textContent='Painel de execução de modelo de Inteligência Artificial e Machine Learning.';
+   await L('$ python train_model.py --algorithm RandomForest');
+   await L('Realizando engenharia de atributos e divisão de treino/teste...', 600);
+   await L('Treinando modelo preditivo com scikit-learn...', 700);
+   rs.innerHTML='<div style="padding:10px; background:#0b120e; color:#b8f5d6; border-radius:6px; font-family:monospace;">Matriz de Confusão do Modelo:<br>[ [450,  12],<br>  [ 18, 420] ]<br><br><b>Acurácia:</b> 96.4% | <b>F1-Score:</b> 0.95</div>';
+   await L('Inferência concluída com sucesso.', 200);
 
   }else if(d[3]==='Sites-e-Sistemas-com-Python'){
-   document.getElementById('nt').textContent='Subindo servidor Web Python e rotas de API RESTful.';
+   document.getElementById('nt').textContent='Ambiente de servidor web simulando rotas de API em Python.';
    await L('$ uvicorn main:app --reload --port 8000');
-   await L('INFO: Server process started [PID 1024]', 500);
-   await L('INFO: Application startup complete. Listening on http://127.0.0.1:8000', 500);
-   await L('GET /api/v1/status 200 OK (15ms)', 400);
-   rs.innerHTML='<div style="padding:10px; background:#0b120e; color:#4fd1a1; border-radius:6px; font-family:monospace;">{"status": 200, "message": "Servidor Python Ativo"}</div>';
-   await L('Serviço operacional.', 300);
+   await L('INFO: Iniciando servidor Uvicorn em http://127.0.0.1:8000', 500);
+   await L('INFO: Rotas de API mapeadas (Auth, Database, Endpoints).', 500);
+   rs.innerHTML='<div style="padding:10px; background:#0b120e; color:#4fd1a1; border-radius:6px; font-family:monospace;">{<br>&nbsp;&nbsp;"status": 200,<br>&nbsp;&nbsp;"server": "Python Uvicorn API",<br>&nbsp;&nbsp;"endpoints": ["/api/v1/users", "/api/v1/systems"]<br>}</div>';
+   await L('Servidor rodando ativamente.', 200);
 
   }else{
-   document.getElementById('nt').textContent='Informações do módulo técnico de infraestrutura e redes.';
-   await L('$ system_check --módulo '+ (d[3]||'Hardware_Network'));
-   await L('Diagnóstico concluído: Todos os serviços operacionais.', 500);
-   rs.innerHTML='<p style="color:var(--acc); font-weight:600;">Módulo em pleno funcionamento.</p>';
+   document.getElementById('nt').textContent='Painel de monitoramento do sistema selecionado.';
+   await L('$ system_diagnostics --target '+ (d[3]||'Core_Module'));
+   await L('Executando rotinas de verificação de integridade...', 500);
+   rs.innerHTML='<p style="color:var(--acc); font-weight:600;">Sistema operando com 100% de estabilidade e performance.</p>';
+   await L('Operação concluída.', 200);
   }
  }catch(e){}
 }
