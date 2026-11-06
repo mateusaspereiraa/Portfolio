@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mateus Pereira | Central Integrada de T.I. & Portfólio</title>
+<title>Mateus Pereira | Central Integrada de T.I., Automação & Software</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
 :root {
@@ -320,7 +320,7 @@ h3 {
 }
 
 dialog {
-  width: min(760px, 94vw);
+  width: min(780px, 94vw);
   max-height: 90vh;
   border: 1px solid var(--line);
   border-radius: 16px;
@@ -574,9 +574,6 @@ var ROWS = [
   ['TELG000252','LG','Televisao','2','250.00','62.50','']
 ];
 
-var VIDEOS = {};
-
-// REPOSITÓRIOS COM PÁGINAS WEB ESTÁTICAS PUBLICADAS NO GITHUB PAGES
 var HAS_PAGES = [
   "Site-Wpohstore",
   "Toplim-Catalogo-Virtual--Projeto-Final-",
@@ -590,7 +587,6 @@ var HAS_PAGES = [
   "Nlw-Experts"
 ];
 
-// ESTRUTURA DOS DADOS (BLINDAGEM 100% ANTI-404)
 var D = [
   ["📊", "Projeto Dio Power BI", "Power BI & Dados", "Projeto-Dio-Power-BI", "Dashboards e relatórios interativos desenvolvidos no bootcamp Power BI da DIO. Análise visual de métricas corporativas, KPIs de vendas e modelagem de dados no DAX e Power Query.", "#PowerBI #DAX #BusinessIntelligence #DataAnalytics #DIO", 1, "Power BI"],
   ["🤖", "IA com Python", "Inteligência Artificial", "IA-com-Python", "Algoritmos, aprendizado de máquina (Machine Learning), automação inteligente e processamento com Python. Implementação de modelos preditivos e visão computacional.", "#Python #IA #ArtificialIntelligence #MachineLearning #DataScience", 1, "Python"],
@@ -615,24 +611,15 @@ var D = [
   ["🔀", "Git e GitHub (Curso em Vídeo)", "Estudos", "Curso-em-Video-Git-e-Github", "Estudos de Git e GitHub pelo Curso em Vídeo: versionamento de código, base de todo projeto.", "#Git #GitHub #CursoEmVideo", 0, "Git"]
 ];
 
-function key(d, i) { return d[3] || (i === 3 ? "manutencao" : "redes"); }
-
-function esc(s) {
-  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
-}
-
-function cap(d) {
-  return d[4] + "\n\n" + d[5] + " " + TAGS;
-}
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;"); }
+function cap(d) { return d[4] + "\n\n" + d[5] + " " + TAGS; }
 
 var curCat = "Todos";
 var viewMode = "all";
 var currentUser = JSON.parse(localStorage.getItem("mp_user") || '{"name":"Visitante","logged":false}');
 
 var cats = ["Todos"];
-D.forEach(function(d) {
-  if (cats.indexOf(d[2]) < 0) cats.push(d[2]);
-});
+D.forEach(function(d) { if (cats.indexOf(d[2]) < 0) cats.push(d[2]); });
 
 var tabsEl = document.getElementById("tabs");
 var gridEl = document.getElementById("grid");
@@ -668,7 +655,6 @@ function draw() {
     c.className = "card" + (d[6] ? " hl" : "");
     var links = "";
 
-    // SELETOR INTELIGENTE DE LINKS (ZERO ERROS 404)
     if (d[3]) {
       if (HAS_PAGES.indexOf(d[3]) >= 0 || d[8]) {
         var siteUrl = d[8] || "https://" + USER + ".github.io/" + d[3] + "/";
@@ -703,7 +689,6 @@ var runId = 0;
 function sl(ms) { return new Promise(function(r) { setTimeout(r, ms); }); }
 function bar(l, p) { return '<div class="br"><span>' + l + '</span><i style="width:' + p + '%"></i><b>' + String(p).replace('.', ',') + '%</b></div>'; }
 
-// SIMULADOR / AMBIENTE NAVEGADOR PARA AUTOMAÇÕES E PYTHON
 async function runDemo(i) {
   var d = D[i];
   var id = ++runId;
