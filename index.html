@@ -61,21 +61,6 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
 </dialog>
 
 <script>
-/* ============================================================
-   ADICIONAR VÍDEOS (é só editar aqui)
-   ------------------------------------------------------------
-   Cada projeto tem uma "chave" (nome do repositório). Para
-   adicionar um vídeo, coloque uma linha dentro dos colchetes:
-       {t:"Título do vídeo", u:"https://link-do-video"}
-   Separe os vídeos com vírgula. Aceita:
-   - Link do YouTube (youtube.com/watch?v=... ou youtu.be/...): aparece incorporado
-   - Arquivo direto .mp4 / .webm: aparece com player
-   - Qualquer outro link (LinkedIn, Drive, Instagram): aparece como botão "Assistir"
-   Chaves de manutenção e redes: "manutencao" e "redes".
-   Exemplo:
-     "manutencao":[ {t:"Troca de SSD e formatação", u:"https://youtu.be/XXXXXXXXXXX"},
-                    {t:"Limpeza preventiva", u:"https://www.linkedin.com/posts/..."} ],
-   ============================================================ */
 var VIDEOS={
  "manutencao":[],
  "redes":[],
@@ -96,16 +81,11 @@ var VIDEOS={
  "Curso-em-Video-Git-e-Github":[]
 };
 
-/* CONFIGURAÇÃO DE BOTÕES (true = mostrar no portfólio, false = só no código)
-   SHOW_OPEN: botão "Abrir projeto" pela linguagem (StackBlitz / github.dev)
-   SHOW_EMPTY_VIDEOS: botão "Vídeos Relacionados" mesmo sem vídeos.
-   Com false, o botão aparece sozinho assim que você adicionar um vídeo ao projeto. */
 var SHOW_OPEN=false, SHOW_EMPTY_VIDEOS=false;
-/* Projetos com site funcionando (pasta projetos/ no GitHub). Os demais mostram "Site em construção" até terem arquivos publicados. */
 var SITES=["Site-Wpohstore","Toplim-Catalogo-Virtual--Projeto-Final-","projeto-final","financeiro","LandingPageFocoinTech","P-gina-de-Checkout","Sistema-deposito-de-Bebidas-","Loja-Yshop-Online-Store","World-Designer","Nlw-Experts","Curso-em-Video-Git-e-Github"];
 var U2="https://github.com/mateusaspereiraa/";
 var USER="mateusaspereiraa", TAGS="#TI #Tecnologia #Portfolio";
-/* [emoji, nome, área, repositório, legenda, hashtags, destaque, linguagem] */
+
 var D=[
 ["🛠️","Manutenção de Computadores","Manutenção","","Diagnóstico, limpeza, troca de peças e formatação: o dia a dia que mantém empresas e pessoas trabalhando.\nVou mostrar o antes e o depois de cada atendimento.","#ManutencaoDeComputadores #SuporteTecnico #Hardware",1],
 ["🌐","Redes e Infraestrutura","Redes","","Cabeamento, configuração de roteadores, Wi-Fi e resolução de falhas de conexão, do problema à solução.","#Redes #Infraestrutura #SuporteTecnico",1],
@@ -128,7 +108,6 @@ var D=[
 ];
 
 function key(d,i){return d[3]||(i===0?"manutencao":"redes")}
-/* Abrir o projeto pela linguagem (alternativa quando o site hospedado não abre) */
 function openByLang(d){
  var r=d[3],l=d[7];
  if(l==="Python")return{u:"https://github.dev/"+USER+"/"+r,t:"Abrir código Python"};
@@ -140,6 +119,7 @@ function cap(d){return d[4]+"\n\n"+d[5]+" "+TAGS}
 
 var cats=["Todos"];D.forEach(function(d){if(cats.indexOf(d[2])<0)cats.push(d[2])});
 var cur="Todos",tabs=document.getElementById("tabs"),grid=document.getElementById("grid");
+
 function draw(){
  tabs.innerHTML="";
  cats.forEach(function(c){var b=document.createElement("button");b.textContent=c;b.setAttribute("aria-pressed",c===cur);b.onclick=function(){cur=c;draw()};tabs.appendChild(b)});
@@ -148,10 +128,22 @@ function draw(){
   if(cur!=="Todos"&&d[2]!==cur)return;
   var c=document.createElement("article");c.className="card"+(d[6]?" hl":"");
   var n=(VIDEOS[key(d,i)]||[]).length, links="";
+  
   if(d[3]){
    var o=openByLang(d);
-   links=d[7]==="Python"?'<a class="btn p" href="'+(location.hostname.indexOf("github.io")>=0?"projetos/"+d[3]+"/":"https://"+USER+".github.io/"+d[3]+"/")+'" target="_blank" rel="noopener">Abrir no navegador</a><a class="btn" href="https://github.dev/'+USER+'/'+d[3]+'" target="_blank" rel="noopener">Ver código</a>':(SITES.indexOf(d[3])>=0?'<a class="btn p" href="'+(location.hostname.indexOf("github.io")>=0&&d[3]!=="Toplim-Catalogo-Virtual--Projeto-Final-"?"projetos/"+d[3]+"/":(d[8]||"https://"+USER+".github.io/"+d[3]+"/"))+'" target="_blank" rel="noopener">Ver site</a>':'<span class="btn" style="opacity:.65;cursor:default">Site em construção</span><a class="btn" href="'+U2+d[3]+'" target="_blank" rel="noopener">Ver código</a>')+(SHOW_OPEN?'<a class="btn" href="'+o.u+'" target="_blank" rel="noopener">'+o.t+'</a>':'')+'';
+   if(d[7]==="Python"){
+    links='<a class="btn p" href="'+(location.hostname.indexOf("github.io")>=0?"projetos/"+d[3]+"/":"https://"+USER+".github.io/"+d[3]+"/")+'" target="_blank" rel="noopener">Abrir no navegador</a><a class="btn" href="https://github.dev/'+USER+'/'+d[3]+'" target="_blank" rel="noopener">Ver código</a>';
+   }else if(SITES.indexOf(d[3])>=0){
+    var siteUrl = d[8] || (location.hostname.indexOf("github.io")>=0 && d[3]!=="Toplim-Catalogo-Virtual--Projeto-Final-" ? "projetos/"+d[3]+"/" : "https://"+USER+".github.io/"+d[3]+"/");
+    links='<a class="btn p" href="'+siteUrl+'" target="_blank" rel="noopener">Ver site</a>';
+   }else{
+    links='<span class="btn" style="opacity:.65;cursor:default">Site em construção</span><a class="btn" href="'+U2+d[3]+'" target="_blank" rel="noopener">Ver código</a>';
+   }
+   if(SHOW_OPEN){
+    links += '<a class="btn" href="'+o.u+'" target="_blank" rel="noopener">'+o.t+'</a>';
+   }
   }
+
   c.innerHTML='<div class="cover" aria-hidden="true">'+d[0]+'</div><div class="body"><div class="cat">'+d[2]+'</div><h3>'+d[1]+'</h3><p class="cap">'+esc(cap(d))+'</p><div class="row">'+links+''+(n||SHOW_EMPTY_VIDEOS?'<button class="btn v" data-v="'+i+'">Vídeos Relacionados ('+n+')</button>':'')+'<button class="btn" data-i="'+i+'">Copiar legenda</button></div></div>';
   grid.appendChild(c)});
 }
