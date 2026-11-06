@@ -306,10 +306,6 @@ h3 {
   background: var(--acc-hover);
 }
 
-.btn.v {
-  width: 100%;
-}
-
 .btn.sec {
   border-color: var(--line);
   color: var(--ink);
@@ -559,7 +555,6 @@ var USER = "mateusaspereiraa";
 var U2 = "https://github.com/" + USER + "/";
 var TAGS = "#TI #Tecnologia #Portfolio #Dev";
 
-// DADOS REAIS DA AUTOMAÇÃO COM PYTHON ANTERIOR (12 de 293 linhas de produtos)
 var ROWS = [
   ['MOLO000251','Logitech','Mouse','1','25.95','6.50',''],
   ['MOLO000192','Logitech','Mouse','2','19.95','5.00',''],
@@ -575,30 +570,9 @@ var ROWS = [
   ['TELG000252','LG','Televisao','2','250.00','62.50','']
 ];
 
-var VIDEOS = {
-  "manutencao": [],
-  "redes": [],
-  "Site-Wpohstore": [],
-  "Toplim-Catalogo-Virtual--Projeto-Final-": [],
-  "financeiro": [],
-  "LandingPageFocoinTech": [],
-  "P-gina-de-Checkout": [],
-  "Sistema-deposito-de-Bebidas-": [],
-  "dyeshop": [],
-  "Loja-Yshop-Online-Store": [],
-  "Site-de-Pedagogia": [],
-  "Dropshipping-e-Afiliados": [],
-  "World-Designer": [],
-  "Automacao-com-Python": [],
-  "Analise-de-Dados-com-Python": [],
-  "Nlw-Experts": [],
-  "Curso-em-Video-Git-e-Github": [],
-  "Projeto-Dio-Power-BI": [],
-  "IA-com-Python": [],
-  "Sites-e-Sistemas-com-Python": []
-};
+var VIDEOS = {};
 
-// APENAS OS REPOSITÓRIOS QUE POSSUEM SITES WEB ESTÁTICOS REAIS HOSPEDADOS NO GITHUB PAGES
+// APENAS OS REPOSITÓRIOS COM PÁGINA WEB ESTÁTICA REAL NO GITHUB PAGES
 var SITES = [
   "Site-Wpohstore",
   "Toplim-Catalogo-Virtual--Projeto-Final-",
@@ -612,7 +586,7 @@ var SITES = [
   "Nlw-Experts"
 ];
 
-// LISTA DE REPOSITÓRIOS COM PÁGINA WEB PRÓPRIA (EXCETO SCRIPTS PUROS)
+// LISTA RIGOROSA DE REPOSITÓRIOS COM PÁGINA WEB ESTÁTICA ATIVA NO PAGES
 var HAS_PAGES = [
   "Site-Wpohstore",
   "Toplim-Catalogo-Virtual--Projeto-Final-",
@@ -626,15 +600,11 @@ var HAS_PAGES = [
   "Nlw-Experts"
 ];
 
-// ESTRUTURA DOS DADOS
-// [0:Emoji, 1:Título, 2:Categoria, 3:Repo, 4:Descrição, 5:Hashtags, 6:Destaque(1/0), 7:Tecnologia, 8:URL Custom]
+// ESTRUTURA DOS DADOS (Segura contra erro 404)
 var D = [
-  // Novos repositórios (sem páginas web estáticas directas, redirecionam sem erro 404 para o repositório ou simulação)
   ["📊", "Projeto Dio Power BI", "Power BI & Dados", "Projeto-Dio-Power-BI", "Dashboards e relatórios interativos desenvolvidos no bootcamp Power BI da DIO. Análise visual de métricas corporativas, KPIs de vendas e modelagem de dados no DAX e Power Query.", "#PowerBI #DAX #BusinessIntelligence #DataAnalytics #DIO", 1, "Power BI"],
   ["🤖", "IA com Python", "Inteligência Artificial", "IA-com-Python", "Algoritmos, aprendizado de máquina (Machine Learning), automação inteligente e processamento com Python. Implementação de modelos preditivos e visão computacional.", "#Python #IA #ArtificialIntelligence #MachineLearning #DataScience", 1, "Python"],
   ["🐍", "Sites e Sistemas com Python", "Sistemas Python", "Sites-e-Sistemas-com-Python", "Desenvolvimento de aplicações web, APIs e automações completas utilizando frameworks e bibliotecas modernas em Python (Flask, Django, Streamlit, etc).", "#Python #WebDevelopment #Flask #Django #Backend", 1, "Python"],
-  
-  // Repositórios originais
   ["🛠️", "Manutenção de Computadores", "Manutenção", "", "Diagnóstico, limpeza, troca de peças e formatação: o dia a dia que mantém empresas e pessoas trabalhando.\nVou mostrar o antes e o depois de cada atendimento.", "#ManutencaoDeComputadores #SuporteTecnico #Hardware", 1, "Hardware"],
   ["🌐", "Redes e Infraestrutura", "Redes", "", "Cabeamento, configuração de roteadores, Wi-Fi e resolução de falhas de conexão, do problema à solução.", "#Redes #Infraestrutura #SuporteTecnico", 1, "Redes"],
   ["🏆", "Projeto Final: Central de Sistemas T.I.", "Projeto Final", "projeto-final", "Criei uma central de sistemas em arquivo único, com login e quatro módulos para a rotina de T.I.: chamados de manutenção, inventário de redes, estoque e finanças.\nTudo salvo no navegador, com busca, edição e exportação em CSV.", "#ProjetoFinal #TI #JavaScript #Manutencao #Redes", 1, "HTML/CSS/JS", "https://claude.ai/artifact/DHL4D6EK79y7tzxrdCYZai"],
@@ -665,7 +635,6 @@ function cap(d) {
   return d[4] + "\n\n" + d[5] + " " + TAGS;
 }
 
-// ESTADO GLOBAL
 var curCat = "Todos";
 var viewMode = "all";
 var currentUser = JSON.parse(localStorage.getItem("mp_user") || '{"name":"Visitante","logged":false}');
@@ -709,7 +678,7 @@ function draw() {
     c.className = "card" + (d[6] ? " hl" : "");
     var links = "";
 
-    // BLINDAGEM CONTRA ERRO 404: Se o repositório tiver página web ativa, exibe o link do site. Caso contrário, direciona direto para o código no GitHub ou simulador interativo.
+    // BLOQUEIO TOTAL CONTRA 404: Se o repositório estiver listado em HAS_PAGES, exibe o link do site. Senão, direciona diretamente para o repositório oficial no GitHub.
     if (d[3]) {
       if (HAS_PAGES.indexOf(d[3]) >= 0 || d[8]) {
         var siteUrl = d[8] || "https://" + USER + ".github.io/" + d[3] + "/";
@@ -744,7 +713,6 @@ var runId = 0;
 function sl(ms) { return new Promise(function(r) { setTimeout(r, ms); }); }
 function bar(l, p) { return '<div class="br"><span>' + l + '</span><i style="width:' + p + '%"></i><b>' + String(p).replace('.', ',') + '%</b></div>'; }
 
-// DEMONSTRADOR INTEGRADO DAS AUTOMACÕES
 async function runDemo(i) {
   var d = D[i];
   var id = ++runId;
